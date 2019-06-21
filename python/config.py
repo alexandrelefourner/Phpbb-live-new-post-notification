@@ -22,7 +22,7 @@ SSL_CERT_PATH = "/etc/letsencrypt/live/XXXXXX/fullchain.pem"
 SSL_KEY_PATH = "/etc/letsencrypt/live/XXXXX/privkey.pem"
 
 #Please fill here the url of your website.
-board_url = "/forum2"
+board_url = "/"
 #Please fill here the prefix to all phpbb tables
 prefix_table = "phpbb_"
 
