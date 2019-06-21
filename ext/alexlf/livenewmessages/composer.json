@@ -1,0 +1,27 @@
+{
+    "name": "alexlf/livenewmessages",
+    "type": "phpbb-extension",
+    "description": "Live new messages",
+    "homepage": "",
+    "version": "0.3.2",
+    "time": "2019-06-21",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Alexandre A. LE FOURNER",
+            "email": "",
+            "homepage": "https://www.linkedin.com/in/alexandre-l-14651b182/",
+            "role": ""
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "composer/installers": "~1.0"
+    },
+    "extra": {
+        "display-name": "Live new messages",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.2.0"
+        }
+    }
+}

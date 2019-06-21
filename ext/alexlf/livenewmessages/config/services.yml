@@ -1,0 +1,11 @@
+services:
+    alexlf.livenewmessages.listener:
+        class: alexlf\livenewmessages\event\main_listener
+        arguments:
+            - '@controller.helper'
+            - '@template'
+            - '@user'
+            - '%core.php_ext%'
+            - '@config'
+        tags:
+            - { name: event.listener }
