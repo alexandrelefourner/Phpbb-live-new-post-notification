@@ -111,7 +111,7 @@ You are now ready to activate the extension.
 - Run the server
 
 			
-#Todo list
+# Todo list
 
 - Solving the composer.js issue
 - Using events to update the topics watched
