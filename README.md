@@ -1,5 +1,5 @@
 # Phpbb-live-new-post-notification
-A Phpbb plugin developped to get live notifications of new posts
+A Phpbb plugin developed to get live notifications of new posts
 
 ## Basic installation
 Download the basic_installation.zip file and unzip it.
@@ -57,7 +57,7 @@ You can next edit the message sent to the users when a new post has been set up.
 
 The debug variable is set to False. It gives more information about the different actions of the server.
 
-Once done, you should install python3 if it has not yet been done. I developped the server with Python3.6.4 and it should run on all upper version.
+Once done, you should install python3 if it has not yet been done. I developed the server with Python3.6.4 and it should run on all upper version.
 You can download python [here](https://www.python.org/downloads/) (do not forget to install pip when it will be proposed in the installation. we need it right after !)
 
 To install the dependancies, simply paste the following commands:
@@ -99,7 +99,7 @@ In my example, this is daz8d94azd8az4daz6d
 
 
 `````php
-			$client->send("1;key_of_your_server;".$event["data"]["topic_id"].";".$user->data["username"].";".$event["data"]["post_id"]);
+			$client->send("1;daz8d94azd8az4daz6d;".$event["data"]["topic_id"].";".$user->data["username"].";".$event["data"]["post_id"]);
 `````
 
 ### ext\alexlf\livenewmessages\styles\all\template\styles\all\template\js\websocket.js
