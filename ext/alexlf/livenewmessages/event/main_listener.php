@@ -60,20 +60,18 @@ class main_listener implements EventSubscriberInterface
 	}
 
 
-	public function submit_post_end($event){
-		global $user;
-		
+	public function submit_post_end($event)
+	{
 		if($event["mode"] == "reply" OR $event["mode"] == "post"){
 			$client = new Client("wss://url_of_your_server:port_of_your_server/");
-			$client->send("1;key_of_your_server;" . $event["data"]["topic_id"] . ";" . $user->data["username"].  ";" . $event["data"]["post_id"]);
+			$client->send("1;key_of_your_server;" . $event["data"]["topic_id"] . ";" . $this->user->data["username"].  ";" . $this->event["data"]["post_id"]);
 		}
 	}
 	
-	public function load_header(){
-		global $user;
-		
+	public function load_header()
+	{
 		$this->template->assign_vars(array(	
-			'SECRET_CODE_WEBSOCKET' => $user->data["user_id"] . ";" . $user->data["user_regdate"]
+			'SECRET_CODE_WEBSOCKET' => $this->user->data["user_id"] . ";" . $this->user->data["user_regdate"]
 		));
 	}
 

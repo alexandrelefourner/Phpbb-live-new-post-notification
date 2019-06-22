@@ -1,7 +1,11 @@
 # Phpbb-live-new-post-notification
 A Phpbb plugin developped to get live notifications of new posts
 
-## Installation
+## Basic installation
+Download the basic_installation.zip file and unzip it.
+Next, go to "Configuration" step.
+
+## Installation from sources
 
 `````
 git clone https://github.com/alexandrelefourner/Phpbb-live-new-post-notification
@@ -71,7 +75,7 @@ python3 Server.py
 If everything works fine, you should just see "Connection ok" printed.
 
 ### ext\alexlf\livenewmessages\event\main_listener.php
-Modify line 71.
+Modify line 66.
 ![alt text](img/img1.jpg)
 
 If you run without SSL encryption, use "ws://" as protocol. Otherwise, write "wss://".
@@ -98,22 +102,28 @@ In my example, this is daz8d94azd8az4daz6d
 			$client->send("1;key_of_your_server;".$event["data"]["topic_id"].";".$user->data["username"].";".$event["data"]["post_id"]);
 `````
 
-### ext\alexlf\livenewmessages\styles\all\template\event\overall_footer_after.html
-Modify line 22 and 29 to match the correct adress of the Python server (as you did for the $client variable line 71 of main_listener).
+### ext\alexlf\livenewmessages\styles\all\template\styles\all\template\js\websocket.js
+Modify line 1 and 8 to match the correct adress of the Python server (as you did for the $client variable line 71 of main_listener).
 In my example, I get the following :
 
 ![alt text](img/img8.jpg)
 
-You can change the css between lines 9 and 16 to change the shape of the alertify box.
+### ext\alexlf\livenewmessages\styles\all\template\styles\all\template\css\alertify_alexlf_corrected.css
+If you wish to change the style of the notification, you can change this file.
+
+
 
 You are now ready to activate the extension.
 - Upload the /ext/ folder to your board.
-- Run the server
+- Open a command prompt and go to the directory where the server is set up with the configuration files. Next, run the server with the following command :
+
+```cmd
+python3 Server.py```
 
 			
 # Todo list
 
-- Solving the composer.js issue
+- Solving the composer.js issue (only possible in future phpbb version)
 - Using events to update the topics watched
 - Managing the parameters in main_listener/js code from admin panel
 - Adding color customisation from admin panel
