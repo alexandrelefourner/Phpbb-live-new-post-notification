@@ -1,53 +1,53 @@
 <!-- IF S_USER_LOGGED_IN -->
 
-<!-- JavaScript -->
-<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"></script>
+	<!-- JavaScript -->
+	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"></script>
 
-<!-- CSS -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.min.css"/>
+	<!-- CSS -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.min.css"/>
 
-<style>
-.alertify-notifier .ajs-message.ajs-success{
-  background-color: #000000;
-  color: #ffffff;
-}
-.alertify-notifier .ajs-message.ajs-success a{
-  color: #eeff07;
-}
+	<style>
+		.alertify-notifier .ajs-message.ajs-success{
+		  background-color: #000000;
+		  color: #ffffff;
+		}
+		.alertify-notifier .ajs-message.ajs-success a{
+		  color: #eeff07;
+		}
 
-</style>
+	</style>
 
-<script>
+	<script>
 
-websocket = new WebSocket("wss://user_python_server_host:python_server_port/");
-websocket.onopen = function(evt) { onOpen(evt) };
-websocket.onclose = function(evt) { onClose(evt) };
-websocket.onmessage = function(evt) { onMessage(evt) };
-websocket.onerror = function(evt) { onError(evt) };
+		websocket = new WebSocket("wss://user_python_server_host:python_server_port/");
+		websocket.onopen = function(evt) { onOpen(evt) };
+		websocket.onclose = function(evt) { onClose(evt) };
+		websocket.onmessage = function(evt) { onMessage(evt) };
+		websocket.onerror = function(evt) { onError(evt) };
 
-function reopen(){
-	websocket = new WebSocket("wss://user_python_server_host:python_server_port/");
-}
+		function reopen(){
+			websocket = new WebSocket("wss://user_python_server_host:python_server_port/");
+		}
 
-function onOpen(evt)
-{
-    websocket.send("0;{SECRET_CODE_WEBSOCKET}");
-}
+		function onOpen(evt)
+		{
+		    websocket.send("0;{SECRET_CODE_WEBSOCKET}");
+		}
 
-function onClose(evt)
-{
-	reopen();
-}
+		function onClose(evt)
+		{
+			reopen();
+		}
 
-function onError(evt)
-{
-	reopen();
-}
+		function onError(evt)
+		{
+			reopen();
+		}
 
-function onMessage(evt)
-{
-	alertify.notify("<center>"+evt.data+"</center>", 'success', 12);
-}
-</script>
+		function onMessage(evt)
+		{
+			alertify.notify("<center>"+evt.data+"</center>", 'success', 12);
+		}
+	</script>
 
 <!-- ENDIF -->
