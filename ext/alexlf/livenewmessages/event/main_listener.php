@@ -10,10 +10,8 @@
 namespace alexlf\livenewmessages\event;
 
 require(dirname(dirname(__FILE__)) . '/vendor/autoload.php');
+
 use WebSocket\Client;
-/**
- * @ignore
- */
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 
@@ -59,17 +57,15 @@ class main_listener implements EventSubscriberInterface
 		$this->user     = $user;
 		$this->php_ext  = $php_ext;
 		$this->config  = $config;
-		// $this->phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : './';
 	}
 
 
 	public function submit_post_end($event){
 		global $user;
 		
-		
 		if($event["mode"] == "reply" OR $event["mode"] == "post"){
 			$client = new Client("wss://url_of_your_server:port_of_your_server/");
-			$client->send("1;key_of_your_server;".$event["data"]["topic_id"].";".$user->data["username"].";".$event["data"]["post_id"]);
+			$client->send("1;key_of_your_server;" . $event["data"]["topic_id"] . ";" . $user->data["username"].  ";" . $event["data"]["post_id"]);
 		}
 	}
 	
@@ -77,8 +73,8 @@ class main_listener implements EventSubscriberInterface
 		global $user;
 		
 		$this->template->assign_vars(array(	
-			'SECRET_CODE_WEBSOCKET' => $user->data["user_id"].";".$user->data["user_regdate"])
-		);
+			'SECRET_CODE_WEBSOCKET' => $user->data["user_id"] . ";" . $user->data["user_regdate"]
+		));
 	}
 
 }
