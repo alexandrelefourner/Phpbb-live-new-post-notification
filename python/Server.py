@@ -173,24 +173,25 @@ def reset_topic_watched():
     
     global topics_watched, protect_locker
     
-    local_watched_topics = {}
-    
-    for record in select_all("Select user_id, "+config.prefix_table+"topics_watch.topic_id, "+                              config.prefix_table+"topics.topic_title from "+                              config.prefix_table+"topics_watch INNER JOIN "+config.prefix_table+"topics ON "+                              config.prefix_table+"topics_watch.topic_id = "+config.prefix_table+"topics.topic_id"):
-        user_id = record[0]
-        topic_id = record[1]
-        topic_title = record[2]
+    try:
+        local_watched_topics = {}
+        
+        for record in select_all("Select user_id, "+config.prefix_table+"topics_watch.topic_id, "+                              config.prefix_table+"topics.topic_title from "+                              config.prefix_table+"topics_watch INNER JOIN "+config.prefix_table+"topics ON "+                              config.prefix_table+"topics_watch.topic_id = "+config.prefix_table+"topics.topic_id"):
+            user_id = record[0]
+            topic_id = record[1]
+            topic_title = record[2]
 
 
-        if(not topic_id in local_watched_topics):
-            local_watched_topics[topic_id] = FollowedTopic(topic_id, topic_title)
-        if(topic_id == 2041):
-            printdebug("Adding", user_id)
-        local_watched_topics[topic_id].add_follower(user_id)
-    
-    with protect_locker:
-        del(topics_watched)
-        topics_watched = local_watched_topics #Update of the list.
-    printdebug("topics reset")
+            if(not topic_id in local_watched_topics):
+                local_watched_topics[topic_id] = FollowedTopic(topic_id, topic_title)
+            local_watched_topics[topic_id].add_follower(user_id)
+        
+        with protect_locker:
+            del(topics_watched)
+            topics_watched = local_watched_topics #Update of the list.
+    except:
+        printdebug("Reset error.")
+    #printdebug("topics reset")
 
 
 def tread_reset_topic():
@@ -250,7 +251,7 @@ class ClientManager(WebSocket):
                 printdebug("Incorrect key!")
                 self.close()
             
-            printdebug("Ok.")
+            printdebug("Ok.", data_split)
             #1;Secret Sever Key;topic_id;poster_name;post_id
             
             with protect_locker:

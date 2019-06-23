@@ -64,7 +64,7 @@ class main_listener implements EventSubscriberInterface
 	{
 		if($event["mode"] == "reply" OR $event["mode"] == "post"){
 			$client = new Client("wss://url_of_your_server:port_of_your_server/");
-			$client->send("1;key_of_your_server;" . $event["data"]["topic_id"] . ";" . $this->user->data["username"].  ";" . $this->event["data"]["post_id"]);
+			$client->send("1;key_of_your_server;" . $event["data"]["topic_id"] . ";" . $this->user->data["username"].  ";" . $event["data"]["post_id"]);
 		}
 	}
 	

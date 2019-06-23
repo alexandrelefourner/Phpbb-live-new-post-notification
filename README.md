@@ -32,7 +32,7 @@ In my example, I will run on the same hardware (127.0.0.1). My database is calle
 ![alt text](img/img3.jpg)
 
 Next, we create the internal parameter for the server.
-In my example, my server adress is 79.130.XX.XXX, and I have configured my firewall to open port 9001.
+In my example, my server address is 79.130.XX.XXX, and I have configured my firewall to open port 9001.
 I also need to set up a specific key that will be used by phpbb to be recognized. This can be anything, just take care to avoid semicolon (;).
 I use daz8d94azd8az4daz6d for this example.
 
@@ -44,7 +44,7 @@ You will need to configure the path of your certificate and its key, and set "US
 
 ![alt text](img/img5.jpg)
 
-You will need to select the adress of the board, as it will be used for the correct redirection for the posts.
+You will need to select the address of the board, as it will be used for the correct redirection for the posts.
 The information is available in script path from the home Admin Panel.
 
 ![alt text](img/img6.jpg)
@@ -103,7 +103,7 @@ In my example, this is daz8d94azd8az4daz6d
 `````
 
 ### ext\alexlf\livenewmessages\styles\all\template\styles\all\template\js\websocket.js
-Modify line 1 and 8 to match the correct adress of the Python server (as you did for the $client variable line 71 of main_listener).
+Modify line 1 and 8 to match the correct address of the Python server (as you did for the $client variable line 66 of main_listener).
 In my example, I get the following :
 
 ![alt text](img/img8.jpg)
