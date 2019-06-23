@@ -118,7 +118,8 @@ You are now ready to activate the extension.
 - Open a command prompt and go to the directory where the server is set up with the configuration files. Next, run the server with the following command :
 
 ```cmd
-python3 Server.py```
+python3 Server.py
+```
 
 			
 # Todo list
